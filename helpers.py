@@ -46,3 +46,15 @@ def seed_database():
     session.add_all(menu_items)
     session.commit()
     print("Database seeded successfully!")
+
+def get_all_menu_items():
+    return session.query(MenuItem).all()
+
+def find_customer_by_email(email):
+    return session.query(Customer).filter(Customer.email==email).first()
+
+def create_customer(name, email):
+    customer=Customer(name=name, email=email)
+    session.add(customer)
+    session.commit()
+    return customer
