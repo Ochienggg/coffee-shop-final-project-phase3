@@ -79,3 +79,18 @@ def create_order_item(order_id, menu_item_id, quantity, price):
     session.add(order_item)
     session.commit()
     return order_item
+
+def get_customer_orders(order_id):
+    return session.query(Order).filter(Order.customer_id=customer_id).all()
+
+def get_order_items(order_id):
+    return session.query(OrderItem).filter(OrderItem.order_id == order_id).all()
+
+def get_all_orders():
+    return session.query(Order).all()
+
+def find_customer_by_id(customer_id):
+    return session.query(Customer).filter(Customer.id == customer_id).first()
+if __name__ == "__main__":
+    seed_database()
+
