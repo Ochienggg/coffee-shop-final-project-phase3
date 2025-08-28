@@ -33,4 +33,30 @@ def main_menu():
             name = input("Enter your name:").strip()
             email = input("Enter your email").strip()
 
-            if 
+            if find_customer_by_name(email):
+                print("Email already registered!")
+
+            else:
+                current_customer = create_customer(name, email)
+                print(f"Customer {name} created!")
+
+        elif choice == "3":
+            email = input("Enter customer email: ").strip()
+            customer = find_customer_by_email(email)
+            if customer:
+                current_customer = customer
+                print(f"Hello {current_customer.name}!")
+            else:
+                print("Customer not found")
+
+        elif choice == "4" and current_customer:
+            menu_items = get_all_menu_items()
+            if not menu_items:
+                print("No menu items available")
+                continue
+                
+            print("\nAvailable menu items:")
+            for item in menu_items:
+                print(f"{item.id}. {item.name} - ${item.price}")       
+
+            
