@@ -1,5 +1,5 @@
-from lib.helpers import *
-from lib.models import session
+from helpers import *
+from models import session
 
 
 
@@ -33,7 +33,7 @@ def main_menu():
             name = input("Enter your name:").strip()
             email = input("Enter your email").strip()
 
-            if find_customer_by_name(email):
+            if find_customer_by_email(email):
                 print("Email already registered!")
 
             else:

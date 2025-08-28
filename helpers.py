@@ -1,4 +1,4 @@
-from .models import session, Customer, MenuItem, Order, OrderIte
+from models import session, Customer, MenuItem, Order, OrderItem
 
 def seed_database():
     # Create sample customers
@@ -80,8 +80,8 @@ def create_order_item(order_id, menu_item_id, quantity, price):
     session.commit()
     return order_item
 
-def get_customer_orders(order_id):
-    return session.query(Order).filter(Order.customer_id=customer_id).all()
+def get_customer_orders(customer_id):
+    return session.query(Order).filter(Order.customer_id==customer_id).all()
 
 def get_order_items(order_id):
     return session.query(OrderItem).filter(OrderItem.order_id == order_id).all()
