@@ -15,8 +15,8 @@ def main_menu():
         if current_customer:
             print(f"4. Place order ({current_customer.name})")
             print("5. View order history")
-        print("6. View all orders")
-        print("7. Exit")
+            print("6. View all orders")
+            print("7. Exit")
 
         choice = input("Choose option:").strip()
 
